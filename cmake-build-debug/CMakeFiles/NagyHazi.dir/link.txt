@@ -1,0 +1,3 @@
+"D:\Programok\CLion 2020.2.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\NagyHazi.dir/objects.a
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe cr CMakeFiles\NagyHazi.dir/objects.a @CMakeFiles\NagyHazi.dir\objects1.rsp
+C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\NagyHazi.dir/objects.a -Wl,--no-whole-archive  -o NagyHazi.exe -Wl,--out-implib,libNagyHazi.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\NagyHazi.dir\linklibs.rsp

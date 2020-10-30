@@ -1,0 +1,3 @@
+C:/Users/beren/Desktop/NagyHazi/cmake-build-debug/CMakeFiles/NagyHazi.dir
+C:/Users/beren/Desktop/NagyHazi/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/beren/Desktop/NagyHazi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

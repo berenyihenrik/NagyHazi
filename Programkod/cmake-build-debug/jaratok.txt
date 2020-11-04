@@ -1,4 +1,3 @@
-FBN001#2020/12/21#Budapest#New York city#96
-FKL001#2020/11/08#Krakko#Los Angeles#96
+FBN001#2020/12/21#Budapest#New York city#20
+FKL001#2020/11/8#Krakko#Los Angeles#96
 FAL001#2020/11/24#Austin#Los Angeles#96
-

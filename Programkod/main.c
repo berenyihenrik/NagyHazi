@@ -95,9 +95,33 @@ void jaratKeres(Jarat *jaratok, int meret, char *honnan, char *hova, Datum datum
     }
 }
 
-void jaratFoglal(char* jaratszam) {
-
+void foglaltsagiTerkep(char* jaratszam) {
+    printf("EZ A FOGLALTSAGI TERKEP HELYE\n");
 }
+
+
+Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, int jarat, int* foglalasokMeret) {
+    if (jaratok[jarat].foglaltUlesek == NULL) {
+        jaratok[jarat].foglaltUlesek = (int *) malloc(((96 - jaratok[jarat].ferohely) + 1) * sizeof(int));
+    } else {
+        jaratok[jarat].foglaltUlesek = realloc(jaratok[jarat].foglaltUlesek,((96 - jaratok[jarat].ferohely) + 1) * sizeof(int));
+    }
+    jaratok[jarat].ferohely--;
+
+    Foglalas *ujfoglalas;
+    if((*foglalasokMeret) == 0) {
+        (*foglalasokMeret)++;
+        ujfoglalas = (Foglalas*)malloc((*foglalasokMeret) * sizeof(Foglalas));
+        ujfoglalas[(*foglalasokMeret) - 1] = foglalas;
+    }
+    else {
+        (*foglalasokMeret)++;
+        ujfoglalas = realloc(foglalasok, (*foglalasokMeret) * sizeof(Foglalas));
+        ujfoglalas[(*foglalasokMeret) - 1] = foglalas;
+    }
+    return ujfoglalas;
+}
+
 
 
 int main() {
@@ -134,21 +158,9 @@ int main() {
     int foglalasokMeret = 0;
     Foglalas* foglalasok = NULL;
     while(fscanf(fp,"%[^#]#%[^#]#%d#%d\n", tempFoglalas.azonosito, tempFoglalas.nev, &(tempFoglalas.ulohely), &(tempFoglalas.menu)) != EOF) {
-        foglalasokMeret++;
-        if(foglalasokMeret == 1) {
-            foglalasok = (Foglalas*)malloc(foglalasokMeret * sizeof(*foglalasok));
-        } else {
-            foglalasok = (Foglalas*)realloc(foglalasok, foglalasokMeret * sizeof(*foglalasok));
-        }
-        foglalasok[i] = tempFoglalas;
         for(int j = 0; j < jaratokMeret; j++) {
-            if(strcmp(jaratok[j].azonosito, foglalasok[i].azonosito) == 0) {
-                if(jaratok[j].foglaltUlesek == NULL) {
-                    jaratok[j].foglaltUlesek = (int*)malloc(((96-jaratok[j].ferohely)+1) * sizeof(int));
-                } else {
-                    jaratok[j].foglaltUlesek = realloc(jaratok[j].foglaltUlesek,((96-jaratok[j].ferohely)+1) * sizeof(int));
-                }
-                jaratok[j].ferohely--;
+            if(strcmp(jaratok[j].azonosito, tempFoglalas.azonosito) == 0) {
+                foglalasok = jaratFoglal(jaratok, foglalasok, tempFoglalas, j, &foglalasokMeret);
             }
         }
         i++;
@@ -156,21 +168,9 @@ int main() {
     fclose(fp);
 
 
-    //printf("%s %d %d %d %s %s %d\n", jaratok[0].azonosito, jaratok[0].datum.ev, jaratok[0].datum.honap, jaratok[0].datum.nap, jaratok[0].honnan, jaratok[0].hova, jaratok[0].ferohely);
-
-
-
-
-
-
-
-
-
 
     /* Menü */
-
     int menupont = 0;
-
 
     while(menupont != 5) {
         printf("Válassz egyet az alábbi menüpontok közül:\n");
@@ -188,6 +188,7 @@ int main() {
             printf("Honnan kíván utazni?");
             char honnan[50];
             gets(honnan);
+            fflush(stdin);
             printf("Hova kíván utazni?");
             char hova[50];
             gets(hova);
@@ -200,8 +201,8 @@ int main() {
                 printf("Mi legyen az indulási dátum?");
                 datum_kezdo = datumBeolvas();
             }
-            Datum datum_vegso = datumBeolvas();
             printf("Mi legyen a végsõ dátum?");
+            Datum datum_vegso = datumBeolvas();
             while(hibaKeres(datum_vegso)) {
                 printf("Hibás Dátum formátum, kérlek próbáld újra\n");
                 printf("Mi legyen a végsõ dátum?");
@@ -214,7 +215,49 @@ int main() {
 
         /* Repülõjegy foglalása menüpont */
         else if(menupont == 2) {
-            printf("Ez a repülõjegy foglalása menüpont.\n");
+            printf("Mi a járat azonosítója?");
+            char *jaratszam = (char*)malloc(7 * sizeof(char));
+            fflush(stdin);
+            gets(jaratszam);
+
+
+            int jarat = 0;
+
+            while (jarat < jaratokMeret) {
+                if (strcmp(jaratok[jarat].azonosito, jaratszam) == 0) {
+                    char *nev = (char*)malloc(50 * sizeof(char));
+
+                    printf("Milyen névre legyen a foglalás?");
+                    fflush(stdin);
+                    gets(nev);
+
+                    printf("Kérlek válassz ülõhelyet!\n");
+                    foglaltsagiTerkep(jaratszam);
+                    printf("Választott ülõhely:");
+
+                    int ulohely;
+                    fflush(stdin);
+                    scanf("%d", &ulohely);
+                    printf("Válassz az alábbi menük közül:\n");
+                    printf("1.: Normál\n");
+                    printf("2.: Vega\n");
+                    printf("3.: Laktózmentes\n");
+                    printf("Választott étel sorszáma:");
+
+                    int menu;
+                    scanf("%d", &menu);
+                    Foglalas foglalas;
+                    strcpy(foglalas.azonosito, jaratszam);
+                    free(jaratszam);
+                    strcpy(foglalas.nev, nev);
+                    free(nev);
+                    foglalas.ulohely = ulohely;
+                    foglalas.menu = menu;
+
+                    foglalasok = jaratFoglal(jaratok, foglalasok, foglalas, jarat, &foglalasokMeret);
+                }
+                jarat++;
+            }
         }
 
         /* Foglalás törlése menüpont */
@@ -235,10 +278,28 @@ int main() {
     }
 
 
+    /* Járatok adatainak rögzítése a jaratok.txt fájlba */
+    fp = fopen("jaratok.txt", "w");
+    for(int jarat = 0; jarat < jaratokMeret; jarat++) {
+        fprintf(fp, "%s#%d/%d/%d#%s#%s#%d\n", jaratok[jarat].azonosito, jaratok[jarat].datum.ev, jaratok[jarat].datum.honap, jaratok[jarat].datum.nap, jaratok[jarat].honnan, jaratok[jarat].hova, jaratok[jarat].ferohely);
+    }
+    fclose(fp);
+
+    /* Foglalások adatainak rögzítése a foglalasok.txt fájlba */
+    fp = fopen("foglalasok.txt", "w");
+    for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
+        fprintf(fp, "%s#%s#%d#%d\n", foglalasok[foglalas].azonosito, foglalasok[foglalas].nev, foglalasok[foglalas].ulohely, foglalasok[foglalas].menu);
+    }
+    fclose(fp);
 
 
 
 
+
+    /* Felhasznált memóriaterületek felszabadítása */
+    for(int jarat = 0; jarat < jaratokMeret; jarat++) {
+        free(jaratok[jarat].foglaltUlesek);
+    }
     free(jaratok);
     free(foglalasok);
     return 0;

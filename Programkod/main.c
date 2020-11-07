@@ -19,7 +19,7 @@ typedef struct Jarat {
   char honnan[50];
   char hova[50];
   int ferohely;
-  int *foglaltUlesek;
+  char *foglaltUlesek;
 }Jarat;
 
 typedef enum Menu{
@@ -31,7 +31,7 @@ typedef enum Menu{
 typedef struct Foglalas {
     char azonosito[7];
     char nev[50];
-    int ulohely;
+    char ulohely[3];
     int menu;
 }Foglalas;
 
@@ -95,16 +95,29 @@ void jaratKeres(Jarat *jaratok, int meret, char *honnan, char *hova, Datum datum
     }
 }
 
-void foglaltsagiTerkep(char* jaratszam) {
-    printf("EZ A FOGLALTSAGI TERKEP HELYE\n");
+
+
+void foglaltsagiTerkep(char* jaratszam) {  //még nem ellenõrzi az eddig lefoglalt helyeket, csupa üres helyeket fog printelni
+    printf("ABC DEF GHI\n");
+    int ules = 0;
+    while(ules < 90) {
+        if(ules % 9 == 0 && ules != 0) {
+          printf(" %d\n",(ules/9));
+        } else if(ules % 3 == 0 && ules != 0) {
+            printf(" ");
+        }
+        printf("*");
+        ules++;
+    }
+    printf(" %d\n",(ules/9));
 }
 
 
 Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, int jarat, int* foglalasokMeret) {
     if (jaratok[jarat].foglaltUlesek == NULL) {
-        jaratok[jarat].foglaltUlesek = (int *) malloc(((96 - jaratok[jarat].ferohely) + 1) * sizeof(int));
+        jaratok[jarat].foglaltUlesek = (char*)malloc(((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
     } else {
-        jaratok[jarat].foglaltUlesek = realloc(jaratok[jarat].foglaltUlesek,((96 - jaratok[jarat].ferohely) + 1) * sizeof(int));
+        jaratok[jarat].foglaltUlesek = realloc(jaratok[jarat].foglaltUlesek,((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
     }
     jaratok[jarat].ferohely--;
 
@@ -122,7 +135,44 @@ Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, i
     return ujfoglalas;
 }
 
+Foglalas* jaratTorol(Foglalas* foglalasok, char* nev, int* foglalasokMeret) {
+    for(int foglalas = 0; foglalas < *foglalasokMeret; foglalas++) {
+        if(strcmp(foglalasok[foglalas].nev, nev) == 0) {
+            /*if(foglalas != (*foglalasokMeret-1) {
 
+            }*/
+            Foglalas tmpFoglalas;
+            tmpFoglalas = foglalasok[foglalas];
+            foglalasok[foglalas] = foglalasok[(*foglalasokMeret)-1];
+            foglalasok[*foglalasokMeret-1] = tmpFoglalas;
+            (*foglalasokMeret)--;
+            foglalasok = realloc(foglalasok, (*foglalasokMeret) * sizeof(char));
+            return foglalasok;
+        }
+    }
+    printf("Ezen a néven nem található foglalás.\n");
+    return foglalasok;
+}
+
+void Osszesit(Jarat* jaratok, Foglalas* foglalasok, int jaratokMeret, int foglalasokMeret) {
+    for(int jarat = 0; jarat < jaratokMeret; jarat++) {
+        int norm = 0;
+        int veg = 0;
+        int lakt = 0;
+        for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
+            if(strcmp(jaratok[jarat].azonosito ,foglalasok[foglalas].azonosito) == 0) {
+                if(foglalasok[foglalas].menu == normal) {
+                    norm++;
+                } else if(foglalasok[foglalas].menu == vega) {
+                    veg++;
+                } else if(foglalasok[foglalas].menu == laktozmentes) {
+                    lakt++;
+                }
+            }
+        }
+        printf("%s         %d          %d          %d\n", jaratok[jarat].azonosito, norm, veg, lakt);
+    }
+}
 
 int main() {
 #ifdef _WIN32
@@ -157,7 +207,7 @@ int main() {
     i = 0;
     int foglalasokMeret = 0;
     Foglalas* foglalasok = NULL;
-    while(fscanf(fp,"%[^#]#%[^#]#%d#%d\n", tempFoglalas.azonosito, tempFoglalas.nev, &(tempFoglalas.ulohely), &(tempFoglalas.menu)) != EOF) {
+    while(fscanf(fp,"%[^#]#%[^#]#%[^#]#%d\n", tempFoglalas.azonosito, tempFoglalas.nev, tempFoglalas.ulohely, &(tempFoglalas.menu)) != EOF) {
         for(int j = 0; j < jaratokMeret; j++) {
             if(strcmp(jaratok[j].azonosito, tempFoglalas.azonosito) == 0) {
                 foglalasok = jaratFoglal(jaratok, foglalasok, tempFoglalas, j, &foglalasokMeret);
@@ -235,9 +285,9 @@ int main() {
                     foglaltsagiTerkep(jaratszam);
                     printf("Választott ülõhely:");
 
-                    int ulohely;
+                    char *ulohely = (char*)malloc(3 * sizeof(char));
                     fflush(stdin);
-                    scanf("%d", &ulohely);
+                    scanf("%s", ulohely);
                     printf("Válassz az alábbi menük közül:\n");
                     printf("1.: Normál\n");
                     printf("2.: Vega\n");
@@ -251,7 +301,8 @@ int main() {
                     free(jaratszam);
                     strcpy(foglalas.nev, nev);
                     free(nev);
-                    foglalas.ulohely = ulohely;
+                    strcpy(foglalas.ulohely, ulohely);
+                    free(ulohely);
                     foglalas.menu = menu;
 
                     foglalasok = jaratFoglal(jaratok, foglalasok, foglalas, jarat, &foglalasokMeret);
@@ -262,12 +313,19 @@ int main() {
 
         /* Foglalás törlése menüpont */
         else if(menupont == 3) {
-            printf("Foglalás törlése.\n");
+            char *nev = (char*)malloc(50 * sizeof(char));
+            printf("Mileyn néven van a foglalás?");
+            fflush(stdin);
+            gets(nev);
+            foglalasok = jaratTorol(foglalasok, nev, &foglalasokMeret);
+            free(nev);
         }
 
         /* Összesítés menüpont */
         else if(menupont == 4) {
             printf("Összesítés.\n");
+            printf("Járatszám    Normál    Vegán    Laktózmentes\n");
+            Osszesit(jaratok, foglalasok, jaratokMeret, foglalasokMeret);
         }
 
         /* Minden más érték az 5-öt kivéve => nem létezõ menüpont */
@@ -288,7 +346,7 @@ int main() {
     /* Foglalások adatainak rögzítése a foglalasok.txt fájlba */
     fp = fopen("foglalasok.txt", "w");
     for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
-        fprintf(fp, "%s#%s#%d#%d\n", foglalasok[foglalas].azonosito, foglalasok[foglalas].nev, foglalasok[foglalas].ulohely, foglalasok[foglalas].menu);
+        fprintf(fp, "%s#%s#%s#%d\n", foglalasok[foglalas].azonosito, foglalasok[foglalas].nev, foglalasok[foglalas].ulohely, foglalasok[foglalas].menu);
     }
     fclose(fp);
 

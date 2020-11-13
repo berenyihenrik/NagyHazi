@@ -234,11 +234,10 @@ int main() {
         /* Járat keresése menüpont */
         if(menupont == 1) {
             /* Úticélok beolvasása */
-            fflush(stdin);
+            getchar();
             printf("Honnan kíván utazni?");
             char honnan[50];
             gets(honnan);
-            fflush(stdin);
             printf("Hova kíván utazni?");
             char hova[50];
             gets(hova);
@@ -267,7 +266,7 @@ int main() {
         else if(menupont == 2) {
             printf("Mi a járat azonosítója?");
             char *jaratszam = (char*)malloc(7 * sizeof(char));
-            fflush(stdin);
+            getchar();
             gets(jaratszam);
 
 
@@ -278,7 +277,6 @@ int main() {
                     char *nev = (char*)malloc(50 * sizeof(char));
 
                     printf("Milyen névre legyen a foglalás?");
-                    fflush(stdin);
                     gets(nev);
 
                     printf("Kérlek válassz ülõhelyet!\n");
@@ -286,7 +284,7 @@ int main() {
                     printf("Választott ülõhely:");
 
                     char *ulohely = (char*)malloc(3 * sizeof(char));
-                    fflush(stdin);
+                    getchar();
                     scanf("%s", ulohely);
                     printf("Válassz az alábbi menük közül:\n");
                     printf("1.: Normál\n");
@@ -314,8 +312,8 @@ int main() {
         /* Foglalás törlése menüpont */
         else if(menupont == 3) {
             char *nev = (char*)malloc(50 * sizeof(char));
-            printf("Mileyn néven van a foglalás?");
-            fflush(stdin);
+            printf("Milyen néven van a foglalás?");
+            getchar();
             gets(nev);
             foglalasok = jaratTorol(foglalasok, nev, &foglalasokMeret);
             free(nev);

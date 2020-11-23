@@ -142,6 +142,87 @@ NagyHazi/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/build
 .PHONY : NagyHazi/fast
 
+datumkezeles.obj: datumkezeles.c.obj
+
+.PHONY : datumkezeles.obj
+
+# target to build an object file
+datumkezeles.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/datumkezeles.c.obj
+.PHONY : datumkezeles.c.obj
+
+datumkezeles.i: datumkezeles.c.i
+
+.PHONY : datumkezeles.i
+
+# target to preprocess a source file
+datumkezeles.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/datumkezeles.c.i
+.PHONY : datumkezeles.c.i
+
+datumkezeles.s: datumkezeles.c.s
+
+.PHONY : datumkezeles.s
+
+# target to generate assembly for a file
+datumkezeles.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/datumkezeles.c.s
+.PHONY : datumkezeles.c.s
+
+fajlkezeles.obj: fajlkezeles.c.obj
+
+.PHONY : fajlkezeles.obj
+
+# target to build an object file
+fajlkezeles.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj
+.PHONY : fajlkezeles.c.obj
+
+fajlkezeles.i: fajlkezeles.c.i
+
+.PHONY : fajlkezeles.i
+
+# target to preprocess a source file
+fajlkezeles.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/fajlkezeles.c.i
+.PHONY : fajlkezeles.c.i
+
+fajlkezeles.s: fajlkezeles.c.s
+
+.PHONY : fajlkezeles.s
+
+# target to generate assembly for a file
+fajlkezeles.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/fajlkezeles.c.s
+.PHONY : fajlkezeles.c.s
+
+jaratkezeles.obj: jaratkezeles.c.obj
+
+.PHONY : jaratkezeles.obj
+
+# target to build an object file
+jaratkezeles.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj
+.PHONY : jaratkezeles.c.obj
+
+jaratkezeles.i: jaratkezeles.c.i
+
+.PHONY : jaratkezeles.i
+
+# target to preprocess a source file
+jaratkezeles.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/jaratkezeles.c.i
+.PHONY : jaratkezeles.c.i
+
+jaratkezeles.s: jaratkezeles.c.s
+
+.PHONY : jaratkezeles.s
+
+# target to generate assembly for a file
+jaratkezeles.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/jaratkezeles.c.s
+.PHONY : jaratkezeles.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -169,6 +250,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/main.c.s
 .PHONY : main.c.s
 
+menu.obj: menu.c.obj
+
+.PHONY : menu.obj
+
+# target to build an object file
+menu.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/menu.c.obj
+.PHONY : menu.c.obj
+
+menu.i: menu.c.i
+
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/menu.c.i
+.PHONY : menu.c.i
+
+menu.s: menu.c.s
+
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/menu.c.s
+.PHONY : menu.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -178,9 +286,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... NagyHazi
+	@echo ... datumkezeles.obj
+	@echo ... datumkezeles.i
+	@echo ... datumkezeles.s
+	@echo ... fajlkezeles.obj
+	@echo ... fajlkezeles.i
+	@echo ... fajlkezeles.s
+	@echo ... jaratkezeles.obj
+	@echo ... jaratkezeles.i
+	@echo ... jaratkezeles.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... menu.obj
+	@echo ... menu.i
+	@echo ... menu.s
 .PHONY : help
 
 

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <windows.h>
+#include <stdlib.h>
 
 
 typedef struct Datum {

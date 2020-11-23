@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/NagyHazi.dir/datumkezeles.c.obj"
+  "CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj"
+  "CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj"
   "CMakeFiles/NagyHazi.dir/main.c.obj"
+  "CMakeFiles/NagyHazi.dir/menu.c.obj"
   "NagyHazi.exe"
   "NagyHazi.exe.manifest"
   "NagyHazi.pdb"

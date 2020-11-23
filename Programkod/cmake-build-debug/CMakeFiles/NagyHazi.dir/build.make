@@ -89,19 +89,79 @@ CMakeFiles/NagyHazi.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NagyHazi.dir/main.c.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\beren\Desktop\NagyHazi\Programkod\main.c -o CMakeFiles\NagyHazi.dir\main.c.s
 
+CMakeFiles/NagyHazi.dir/datumkezeles.c.obj: CMakeFiles/NagyHazi.dir/flags.make
+CMakeFiles/NagyHazi.dir/datumkezeles.c.obj: ../datumkezeles.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/NagyHazi.dir/datumkezeles.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\NagyHazi.dir\datumkezeles.c.obj   -c C:\Users\beren\Desktop\NagyHazi\Programkod\datumkezeles.c
+
+CMakeFiles/NagyHazi.dir/datumkezeles.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NagyHazi.dir/datumkezeles.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\beren\Desktop\NagyHazi\Programkod\datumkezeles.c > CMakeFiles\NagyHazi.dir\datumkezeles.c.i
+
+CMakeFiles/NagyHazi.dir/datumkezeles.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NagyHazi.dir/datumkezeles.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\beren\Desktop\NagyHazi\Programkod\datumkezeles.c -o CMakeFiles\NagyHazi.dir\datumkezeles.c.s
+
+CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj: CMakeFiles/NagyHazi.dir/flags.make
+CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj: ../jaratkezeles.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\NagyHazi.dir\jaratkezeles.c.obj   -c C:\Users\beren\Desktop\NagyHazi\Programkod\jaratkezeles.c
+
+CMakeFiles/NagyHazi.dir/jaratkezeles.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NagyHazi.dir/jaratkezeles.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\beren\Desktop\NagyHazi\Programkod\jaratkezeles.c > CMakeFiles\NagyHazi.dir\jaratkezeles.c.i
+
+CMakeFiles/NagyHazi.dir/jaratkezeles.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NagyHazi.dir/jaratkezeles.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\beren\Desktop\NagyHazi\Programkod\jaratkezeles.c -o CMakeFiles\NagyHazi.dir\jaratkezeles.c.s
+
+CMakeFiles/NagyHazi.dir/menu.c.obj: CMakeFiles/NagyHazi.dir/flags.make
+CMakeFiles/NagyHazi.dir/menu.c.obj: ../menu.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/NagyHazi.dir/menu.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\NagyHazi.dir\menu.c.obj   -c C:\Users\beren\Desktop\NagyHazi\Programkod\menu.c
+
+CMakeFiles/NagyHazi.dir/menu.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NagyHazi.dir/menu.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\beren\Desktop\NagyHazi\Programkod\menu.c > CMakeFiles\NagyHazi.dir\menu.c.i
+
+CMakeFiles/NagyHazi.dir/menu.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NagyHazi.dir/menu.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\beren\Desktop\NagyHazi\Programkod\menu.c -o CMakeFiles\NagyHazi.dir\menu.c.s
+
+CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj: CMakeFiles/NagyHazi.dir/flags.make
+CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj: ../fajlkezeles.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\NagyHazi.dir\fajlkezeles.c.obj   -c C:\Users\beren\Desktop\NagyHazi\Programkod\fajlkezeles.c
+
+CMakeFiles/NagyHazi.dir/fajlkezeles.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/NagyHazi.dir/fajlkezeles.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\beren\Desktop\NagyHazi\Programkod\fajlkezeles.c > CMakeFiles\NagyHazi.dir\fajlkezeles.c.i
+
+CMakeFiles/NagyHazi.dir/fajlkezeles.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/NagyHazi.dir/fajlkezeles.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\beren\Desktop\NagyHazi\Programkod\fajlkezeles.c -o CMakeFiles\NagyHazi.dir\fajlkezeles.c.s
+
 # Object files for target NagyHazi
 NagyHazi_OBJECTS = \
-"CMakeFiles/NagyHazi.dir/main.c.obj"
+"CMakeFiles/NagyHazi.dir/main.c.obj" \
+"CMakeFiles/NagyHazi.dir/datumkezeles.c.obj" \
+"CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj" \
+"CMakeFiles/NagyHazi.dir/menu.c.obj" \
+"CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj"
 
 # External object files for target NagyHazi
 NagyHazi_EXTERNAL_OBJECTS =
 
 NagyHazi.exe: CMakeFiles/NagyHazi.dir/main.c.obj
+NagyHazi.exe: CMakeFiles/NagyHazi.dir/datumkezeles.c.obj
+NagyHazi.exe: CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj
+NagyHazi.exe: CMakeFiles/NagyHazi.dir/menu.c.obj
+NagyHazi.exe: CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj
 NagyHazi.exe: CMakeFiles/NagyHazi.dir/build.make
 NagyHazi.exe: CMakeFiles/NagyHazi.dir/linklibs.rsp
 NagyHazi.exe: CMakeFiles/NagyHazi.dir/objects1.rsp
 NagyHazi.exe: CMakeFiles/NagyHazi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable NagyHazi.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\beren\Desktop\NagyHazi\Programkod\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable NagyHazi.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\NagyHazi.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

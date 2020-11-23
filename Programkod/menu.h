@@ -1,8 +1,10 @@
-//
-// Created by beren on 23/11/2020.
-//
+#ifndef MENU_H
+#define MENU_H
+#include "jaratkezeles.h"
+#include "fajlkezeles.h"
 
-#ifndef MAIN_C_MENU_H
-#define MAIN_C_MENU_H
+void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalasokMeret);
 
-#endif //MAIN_C_MENU_H
+
+
+#endif

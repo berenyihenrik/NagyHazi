@@ -74,7 +74,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/fajlkezeles.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/fajlkezeles.h">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.h">
+			<Option target="NagyHazi"/>
+		</Unit>
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/main.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/menu.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/menu.h">
 			<Option target="NagyHazi"/>
 		</Unit>
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/CMakeLists.txt">

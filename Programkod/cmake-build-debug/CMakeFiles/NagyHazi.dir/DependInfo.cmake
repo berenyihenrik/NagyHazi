@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.c" "C:/Users/beren/Desktop/NagyHazi/Programkod/cmake-build-debug/CMakeFiles/NagyHazi.dir/datumkezeles.c.obj"
+  "C:/Users/beren/Desktop/NagyHazi/Programkod/fajlkezeles.c" "C:/Users/beren/Desktop/NagyHazi/Programkod/cmake-build-debug/CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj"
+  "C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.c" "C:/Users/beren/Desktop/NagyHazi/Programkod/cmake-build-debug/CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj"
   "C:/Users/beren/Desktop/NagyHazi/Programkod/main.c" "C:/Users/beren/Desktop/NagyHazi/Programkod/cmake-build-debug/CMakeFiles/NagyHazi.dir/main.c.obj"
+  "C:/Users/beren/Desktop/NagyHazi/Programkod/menu.c" "C:/Users/beren/Desktop/NagyHazi/Programkod/cmake-build-debug/CMakeFiles/NagyHazi.dir/menu.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

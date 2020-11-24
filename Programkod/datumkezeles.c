@@ -31,14 +31,3 @@ bool datumOsszehasonlit(Datum datum1, Datum datum2) {
     }
     return true;
 }
-
-bool hibaKeres(Datum datum) {
-    if(datum.ev < 2020) {
-        return true;
-    } else if(datum.honap < 1 || datum.honap > 12) {
-        return true;
-    } else if(datum.nap < 1 || datum.nap > 31) {
-        return true;
-    }
-    return false;
-}

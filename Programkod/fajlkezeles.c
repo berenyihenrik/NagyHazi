@@ -1,5 +1,6 @@
 #include "debugmalloc.h"
 #include "fajlkezeles.h"
+#include <stdio.h>
 
 char* beolvas(FILE* stream, char elvalaszto) {
     int meret = 0;
@@ -24,7 +25,7 @@ char* beolvas(FILE* stream, char elvalaszto) {
                 }
             }
             free(Szoveg);
-            Szoveg = (char*) malloc(meret+1 * sizeof(char));
+            Szoveg = (char*) malloc(meret * sizeof(char));
             if (i != 2) {
                 for (int j = 0; j < meret - 1; j++) {
                     Szoveg[j] = tempSzoveg[j];
@@ -37,9 +38,8 @@ char* beolvas(FILE* stream, char elvalaszto) {
             i++;
         }
     }
-
+    Szoveg = (char*)realloc(Szoveg, (meret+1)*sizeof(char*));
     Szoveg[meret] = '\0';
-    printf("%s\n",Szoveg);
     return Szoveg;
 }
 

@@ -28,9 +28,8 @@ Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, i
 
 
     Foglalas *ujfoglalas;
-
     (*foglalasokMeret)++;
-    ujfoglalas = realloc(foglalasok, (*foglalasokMeret) * sizeof(Foglalas));
+    ujfoglalas = (Foglalas*)realloc(foglalasok, (*foglalasokMeret) * sizeof(*foglalasok));
     ujfoglalas[(*foglalasokMeret) - 1] = foglalas;
 
     return ujfoglalas;
@@ -40,14 +39,14 @@ Foglalas* jaratTorol(Foglalas* foglalasok, char* nev, int* foglalasokMeret) {
     for(int foglalas = 0; foglalas < *foglalasokMeret; foglalas++) {
         if(strcmp(foglalasok[foglalas].nev, nev) == 0) {
             /*if(foglalas != (*foglalasokMeret-1) {
-
             }*/
             Foglalas tmpFoglalas;
             tmpFoglalas = foglalasok[foglalas];
             foglalasok[foglalas] = foglalasok[(*foglalasokMeret)-1];
-            foglalasok[*foglalasokMeret-1] = tmpFoglalas;
+            foglalasok[(*foglalasokMeret)-1] = tmpFoglalas;
             (*foglalasokMeret)--;
-            foglalasok = realloc(foglalasok, (*foglalasokMeret) * sizeof(char));
+            free(tmpFoglalas.nev);
+            foglalasok = (Foglalas*)realloc(foglalasok, (*foglalasokMeret) * sizeof(Foglalas));
             return foglalasok;
         }
     }

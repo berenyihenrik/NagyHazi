@@ -101,6 +101,12 @@
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/menu.h">
 			<Option target="NagyHazi"/>
 		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/validacio.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/validacio.h">
+			<Option target="NagyHazi"/>
+		</Unit>
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

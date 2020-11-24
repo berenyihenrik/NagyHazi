@@ -277,6 +277,33 @@ menu.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/menu.c.s
 .PHONY : menu.c.s
 
+validacio.obj: validacio.c.obj
+
+.PHONY : validacio.obj
+
+# target to build an object file
+validacio.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/validacio.c.obj
+.PHONY : validacio.c.obj
+
+validacio.i: validacio.c.i
+
+.PHONY : validacio.i
+
+# target to preprocess a source file
+validacio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/validacio.c.i
+.PHONY : validacio.c.i
+
+validacio.s: validacio.c.s
+
+.PHONY : validacio.s
+
+# target to generate assembly for a file
+validacio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/validacio.c.s
+.PHONY : validacio.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -301,6 +328,9 @@ help:
 	@echo ... menu.obj
 	@echo ... menu.i
 	@echo ... menu.s
+	@echo ... validacio.obj
+	@echo ... validacio.i
+	@echo ... validacio.s
 .PHONY : help
 
 

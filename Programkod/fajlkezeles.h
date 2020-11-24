@@ -2,6 +2,7 @@
 #define FAJLKEZELES_H
 #include "jaratkezeles.h"
 
+
 char* beolvas(FILE* stream,char elvalaszto);
 
 Jarat* jaratokBeolvas();

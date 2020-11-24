@@ -14,7 +14,7 @@ typedef struct Jarat{
 
 typedef struct Foglalas {
     char azonosito[7];
-    char *nev;
+    char* nev;
     char ulohely[3];
     int menu;
 }Foglalas;

@@ -1,5 +1,5 @@
 #ifdef _WIN32
-    #include <windows.h>
+#include <windows.h>
 #endif
 
 #include "debugmalloc.h"
@@ -7,14 +7,11 @@
 #include "jaratkezeles.h"
 #include "menu.h"
 
-
-
 int main() {
 #ifdef _WIN32
     SetConsoleCP(1250);
     SetConsoleOutputCP(1250);
 #endif
-
     /* jaratok.txt adatainak beolvasása és tárolása */
     int jaratokMeret = 1;
     Jarat* jaratok = (Jarat*)malloc(jaratokMeret * sizeof(*jaratok));
@@ -23,15 +20,12 @@ int main() {
 
     /* foglalasok.txt adatainak beolvasása és tárolása */
     int foglalasokMeret = 0;
-    Foglalas* foglalasok = (Foglalas*)malloc(0);
+    Foglalas* foglalasok = (Foglalas*)malloc(foglalasokMeret * sizeof(foglalasok));
     foglalasok = foglalasokBeolvas(jaratok, foglalasok, &foglalasokMeret, jaratokMeret);
 
     /* Menü */
-    menu(jaratok, &jaratokMeret, foglalasok, &foglalasokMeret);
+    menu(jaratok, &jaratokMeret, &foglalasok, &foglalasokMeret);
 
-    for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
-        printf("%s\n",foglalasok[foglalas].nev);
-    }
 
     /* Adatok elmentése */
     jaratRogzit(jaratok, jaratokMeret);

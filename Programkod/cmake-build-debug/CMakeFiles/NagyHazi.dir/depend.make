@@ -29,4 +29,11 @@ CMakeFiles/NagyHazi.dir/menu.c.obj: ../fajlkezeles.h
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../jaratkezeles.h
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../menu.c
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../menu.h
+CMakeFiles/NagyHazi.dir/menu.c.obj: ../validacio.h
+
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../datumkezeles.h
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../fajlkezeles.h
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../jaratkezeles.h
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../validacio.c
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../validacio.h
 

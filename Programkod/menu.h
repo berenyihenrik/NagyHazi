@@ -3,7 +3,7 @@
 #include "jaratkezeles.h"
 #include "fajlkezeles.h"
 
-void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalasokMeret);
+void menu(Jarat* jaratok, int* jaratokMeret, Foglalas** foglalasok, int* foglalasokMeret);
 
 
 

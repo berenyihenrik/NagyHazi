@@ -1,8 +1,10 @@
 #include "debugmalloc.h"
+#include "validacio.h"
+#include "jaratkezeles.h"
 #include "menu.h"
+#include <stdio.h>
 
-
-void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalasokMeret) {
+void menu(Jarat* jaratok, int* jaratokMeret, Foglalas** foglalasok, int* foglalasokMeret) {
     int menupont = 0;
     while(menupont != 5) {
         printf("Válassz egyet az alábbi menüpontok közül:\n");
@@ -18,21 +20,20 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalas
             /* Úticélok beolvasása */
             getchar();
             printf("Honnan kíván utazni?");
-            char *honnan = beolvas(stdin, '\n');
+            char* honnan = inputValidacio(beolvas(stdin, '\n'));
             printf("Hova kíván utazni?");
-            char *hova= beolvas(stdin, '\n');
-
+            char* hova= inputValidacio(beolvas(stdin, '\n'));
             /* Dátumok beolvasása */
             printf("Mi legyen az indulási dátum?");
             Datum datum_kezdo = datumBeolvas();
-            while(hibaKeres(datum_kezdo)) {
+            while(datumValidacio(datum_kezdo)) {
                 printf("Hibás Dátum formátum, kérlek próbáld újra\n");
                 printf("Mi legyen az indulási dátum?");
                 datum_kezdo = datumBeolvas();
             }
             printf("Mi legyen a végsõ dátum?");
             Datum datum_vegso = datumBeolvas();
-            while(hibaKeres(datum_vegso)) {
+            while(datumValidacio(datum_vegso)) {
                 printf("Hibás Dátum formátum, kérlek próbáld újra\n");
                 printf("Mi legyen a végsõ dátum?");
                 datum_vegso = datumBeolvas();
@@ -42,13 +43,11 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalas
             jaratKeres(jaratok, *jaratokMeret, honnan, hova, datum_kezdo, datum_vegso);
         }
 
-            /* Repülõjegy foglalása menüpont */
+        /* Repülõjegy foglalása menüpont */
         else if(menupont == 2) {
             Foglalas foglalas;
             printf("Mi a járat azonosítója?");
-            char jaratszam[7];
             scanf("%s",foglalas.azonosito);
-
 
             int jarat = 0;
 
@@ -56,13 +55,12 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalas
                 if (strcmp(jaratok[jarat].azonosito, foglalas.azonosito) == 0) {
                     printf("Milyen névre legyen a foglalás?");
                     getchar();
-                    foglalas.nev = beolvas(stdin, '\n');
+                    foglalas.nev = inputValidacio(beolvas(stdin, '\n'));
 
                     printf("Kérlek válassz ülõhelyet!\n");
                     foglaltsagiTerkep(foglalas.azonosito);
                     printf("Választott ülõhely:");
-
-                    //getchar();
+                    /* VALIDÁCIÓ SZÜKSÉGES */
                     scanf("%s", foglalas.ulohely);
                     printf("Válassz az alábbi menük közül:\n");
                     printf("1.: Normál\n");
@@ -71,38 +69,41 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalas
                     printf("Választott étel sorszáma:");
 
                     scanf("%d", &(foglalas.menu));
+                    while(foglalas.menu != normal && foglalas.menu != vega && foglalas.menu != laktozmentes) {
+                        printf("Nem létezõ menü, kérlek írd be újra.\n");
+                        scanf("%d", &(foglalas.menu));
+                    }
 
-                    printf("\n%s %s %s %d\n",foglalas.azonosito, foglalas.nev,foglalas.ulohely,foglalas.menu);
-
-
-                    foglalasok = jaratFoglal(jaratok, foglalasok, foglalas, jarat, foglalasokMeret);
+                    *foglalasok = jaratFoglal(jaratok, *foglalasok, foglalas, jarat, foglalasokMeret);
+                    break;
                 }
                 jarat++;
             }
+            if(jarat == *jaratokMeret) {
+                printf("Hibás vagy nem létezõ azonosító.\n");
+            }
         }
 
-            /* Foglalás törlése menüpont */
+        /* Foglalás törlése menüpont */
         else if(menupont == 3) {
-            char *nev = (char*)malloc(50 * sizeof(char));
+            char *nev;
             printf("Milyen néven van a foglalás?");
             getchar();
-            gets(nev);
-            foglalasok = jaratTorol(foglalasok, nev, foglalasokMeret);
+            nev = inputValidacio(beolvas(stdin, '\n'));
+            *foglalasok = jaratTorol(*foglalasok, nev, foglalasokMeret);
             free(nev);
         }
 
-            /* Összesítés menüpont */
+        /* Összesítés menüpont */
         else if(menupont == 4) {
             printf("Összesítés.\n");
             printf("Járatszám    Normál    Vegán    Laktózmentes\n");
-            Osszesit(jaratok, foglalasok, *jaratokMeret, *foglalasokMeret);
+            Osszesit(jaratok, *foglalasok, *jaratokMeret, *foglalasokMeret);
         }
 
-            /* Minden más érték az 5-öt kivéve => nem létezõ menüpont */
+        /* Minden más érték az 5-öt kivéve => nem létezõ menüpont */
         else if(menupont != 5) {
             printf("Nem létezõ menüpont.\n");
         }
-
     }
 }
-

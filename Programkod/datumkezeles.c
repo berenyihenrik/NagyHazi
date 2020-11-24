@@ -1,3 +1,4 @@
+#include "debugmalloc.h"
 #include "datumkezeles.h"
 
 Datum datumBeolvas(void) {

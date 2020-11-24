@@ -1,3 +1,4 @@
+#include "debugmalloc.h"
 #include "jaratkezeles.h"
 
 void jaratKeres(Jarat *jaratok, int meret, char *honnan, char *hova, Datum datum_kezdo, Datum datum_vegso) {
@@ -18,12 +19,13 @@ void jaratKeres(Jarat *jaratok, int meret, char *honnan, char *hova, Datum datum
 }
 
 Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, int jarat, int* foglalasokMeret) {
-    if (jaratok[jarat].foglaltUlesek == NULL) {
+    /*if (jaratok[jarat].foglaltUlesek == NULL) {
         jaratok[jarat].foglaltUlesek = (char*)malloc(((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
     } else {
         jaratok[jarat].foglaltUlesek = realloc(jaratok[jarat].foglaltUlesek,((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
     }
-    jaratok[jarat].ferohely--;
+    jaratok[jarat].ferohely--;*/
+
 
     Foglalas *ujfoglalas;
 

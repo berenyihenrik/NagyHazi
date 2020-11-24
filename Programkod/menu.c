@@ -1,4 +1,6 @@
+#include "debugmalloc.h"
 #include "menu.h"
+
 
 void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalasokMeret) {
     int menupont = 0;
@@ -42,44 +44,36 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas* foglalasok, int* foglalas
 
             /* Repülõjegy foglalása menüpont */
         else if(menupont == 2) {
+            Foglalas foglalas;
             printf("Mi a járat azonosítója?");
-            char *jaratszam = (char*)malloc(7 * sizeof(char));
-            getchar();
-            gets(jaratszam);
+            char jaratszam[7];
+            scanf("%s",foglalas.azonosito);
 
 
             int jarat = 0;
 
             while (jarat < *jaratokMeret) {
-                if (strcmp(jaratok[jarat].azonosito, jaratszam) == 0) {
-                    char *nev = (char*)malloc(50 * sizeof(char));
-
+                if (strcmp(jaratok[jarat].azonosito, foglalas.azonosito) == 0) {
                     printf("Milyen névre legyen a foglalás?");
-                    gets(nev);
+                    getchar();
+                    foglalas.nev = beolvas(stdin, '\n');
 
                     printf("Kérlek válassz ülõhelyet!\n");
-                    foglaltsagiTerkep(jaratszam);
+                    foglaltsagiTerkep(foglalas.azonosito);
                     printf("Választott ülõhely:");
 
-                    char *ulohely = (char*)malloc(3 * sizeof(char));
-                    getchar();
-                    scanf("%s", ulohely);
+                    //getchar();
+                    scanf("%s", foglalas.ulohely);
                     printf("Válassz az alábbi menük közül:\n");
                     printf("1.: Normál\n");
                     printf("2.: Vega\n");
                     printf("3.: Laktózmentes\n");
                     printf("Választott étel sorszáma:");
 
-                    int menu;
-                    scanf("%d", &menu);
-                    Foglalas foglalas;
-                    strcpy(foglalas.azonosito, jaratszam);
-                    free(jaratszam);
-                    strcpy(foglalas.nev, nev);
-                    free(nev);
-                    strcpy(foglalas.ulohely, ulohely);
-                    free(ulohely);
-                    foglalas.menu = menu;
+                    scanf("%d", &(foglalas.menu));
+
+                    printf("\n%s %s %s %d\n",foglalas.azonosito, foglalas.nev,foglalas.ulohely,foglalas.menu);
+
 
                     foglalasok = jaratFoglal(jaratok, foglalasok, foglalas, jarat, foglalasokMeret);
                 }

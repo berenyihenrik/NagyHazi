@@ -1,14 +1,13 @@
-#include <stdio.h>
-#include <string.h>
 #ifdef _WIN32
     #include <windows.h>
 #endif
 
+#include "debugmalloc.h"
 #include "datumkezeles.h"
 #include "jaratkezeles.h"
 #include "menu.h"
 
-//#include "debugmalloc.h"
+
 
 int main() {
 #ifdef _WIN32
@@ -23,40 +22,20 @@ int main() {
     jaratokMeret--;
 
     /* foglalasok.txt adatainak beolvasása és tárolása */
-    FILE* fp;
-    fp = fopen("foglalasok.txt", "r");
-    Foglalas tempFoglalas;
-
-    int i = 0;
     int foglalasokMeret = 0;
     Foglalas* foglalasok = (Foglalas*)malloc(0);
-    while(fscanf(fp,"%[^#]#%[^#]#%[^#]#%d\n", tempFoglalas.azonosito, tempFoglalas.nev, tempFoglalas.ulohely, &(tempFoglalas.menu)) != EOF) {
-        for(int j = 0; j < jaratokMeret; j++) {
-            if(strcmp(jaratok[j].azonosito, tempFoglalas.azonosito) == 0) {
-                foglalasok = jaratFoglal(jaratok, foglalasok, tempFoglalas, j, &foglalasokMeret);
-            }
-        }
-        i++;
-    }
-    fclose(fp);
-
-
+    foglalasok = foglalasokBeolvas(jaratok, foglalasok, &foglalasokMeret, jaratokMeret);
 
     /* Menü */
     menu(jaratok, &jaratokMeret, foglalasok, &foglalasokMeret);
 
-
-    jaratRogzit(jaratok, jaratokMeret);
-
-    /* Foglalások adatainak rögzítése a foglalasok.txt fájlba */
-
-    fp = fopen("foglalasok.txt", "w");
-    //printf("\n FADFADF %d \n",foglalasokMeret);
-    for (int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
-        fprintf(fp, "%s#%s#%s#%d\n", foglalasok[foglalas].azonosito, foglalasok[foglalas].nev, foglalasok[foglalas].ulohely, foglalasok[foglalas].menu);
+    for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
+        printf("%s\n",foglalasok[foglalas].nev);
     }
-    fclose(fp);
 
+    /* Adatok elmentése */
+    jaratRogzit(jaratok, jaratokMeret);
+    foglalasokRogzit(foglalasok, foglalasokMeret);
 
 
     /* Felhasznált memóriaterületek felszabadítása */
@@ -65,9 +44,11 @@ int main() {
         free(jaratok[jarat].honnan);
         free(jaratok[jarat].hova);
     }
+    for(int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
+        free(foglalasok[foglalas].nev);
+    }
     free(jaratok);
     free(foglalasok);
-
 
     return 0;
 }

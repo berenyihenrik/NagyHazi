@@ -1,3 +1,4 @@
+#include "debugmalloc.h"
 #include "fajlkezeles.h"
 
 char* beolvas(FILE* stream, char elvalaszto) {
@@ -10,20 +11,20 @@ char* beolvas(FILE* stream, char elvalaszto) {
 
     if(beolvasott == elvalaszto) {
         meret++;
-        Szoveg = (char *) malloc(meret * sizeof(char));
+        Szoveg = (char*) malloc(meret * sizeof(char));
         Szoveg[0] = '\0';
     } else {
         int i = 2;
         while (beolvasott != elvalaszto) {
             meret++;
-            tempSzoveg = (char *) malloc(meret * sizeof(char));
+            tempSzoveg = (char*) malloc(meret * sizeof(char));
             if (i != 2) {
                 for (int j = 0; j < meret - 1; j++) {
                     tempSzoveg[j] = Szoveg[j];
                 }
             }
             free(Szoveg);
-            Szoveg = (char *) malloc(meret * sizeof(char));
+            Szoveg = (char*) malloc(meret+1 * sizeof(char));
             if (i != 2) {
                 for (int j = 0; j < meret - 1; j++) {
                     Szoveg[j] = tempSzoveg[j];
@@ -36,7 +37,9 @@ char* beolvas(FILE* stream, char elvalaszto) {
             i++;
         }
     }
+
     Szoveg[meret] = '\0';
+    printf("%s\n",Szoveg);
     return Szoveg;
 }
 
@@ -51,9 +54,10 @@ Jarat* jaratokBeolvas(Jarat* jaratok, int* jaratokMeret) {
         tempJarat.hova = beolvas(fp,'\n');
 
         tempJarat.foglaltUlesek = NULL;
-        jaratok = (Jarat*)realloc(jaratok, *jaratokMeret * sizeof(*jaratok));
+
+        jaratok = (Jarat*)realloc(jaratok, (*jaratokMeret) * sizeof(*jaratok));
+
         jaratok[i] = tempJarat;
-        tempJarat.honnan = (char *) malloc(50 * sizeof(char));
         i++;
         (*jaratokMeret)++;
     }
@@ -66,6 +70,34 @@ void jaratRogzit(Jarat* jaratok, int jaratokMeret) {
     FILE *fp = fopen("jaratok.txt", "w");
     for(int jarat = 0; jarat < jaratokMeret; jarat++) {
         fprintf(fp, "%s#%d/%d/%d#%s#%s\n", jaratok[jarat].azonosito, jaratok[jarat].datum.ev, jaratok[jarat].datum.honap, jaratok[jarat].datum.nap, jaratok[jarat].honnan, jaratok[jarat].hova);
+    }
+    fclose(fp);
+}
+
+Foglalas* foglalasokBeolvas(Jarat* jaratok, Foglalas* foglalasok, int* foglalasokMeret, int jaratokMeret) {
+    FILE* fp;
+    fp = fopen("foglalasok.txt", "r");
+    Foglalas tempFoglalas;
+
+    while(fscanf(fp,"%[^#]#", tempFoglalas.azonosito) != EOF) {
+        tempFoglalas.nev = beolvas(fp,'#');
+        fscanf(fp,"%[^#]#%d\n", tempFoglalas.ulohely, &(tempFoglalas.menu));
+        for(int j = 0; j < jaratokMeret; j++) {
+            if(strcmp(jaratok[j].azonosito, tempFoglalas.azonosito) == 0) {
+                foglalasok = jaratFoglal(jaratok, foglalasok, tempFoglalas, j, foglalasokMeret);
+            }
+        }
+    }
+    fclose(fp);
+    return foglalasok;
+}
+
+/* Foglalások adatainak rögzítése a foglalasok.txt fájlba */
+void foglalasokRogzit(Foglalas* foglalasok, int foglalasokMeret) {
+    FILE* fp;
+    fp = fopen("foglalasok.txt", "w");
+    for (int foglalas = 0; foglalas < foglalasokMeret; foglalas++) {
+        fprintf(fp, "%s#%s#%s#%d\n", foglalasok[foglalas].azonosito, foglalasok[foglalas].nev, foglalasok[foglalas].ulohely, foglalasok[foglalas].menu);
     }
     fclose(fp);
 }

@@ -4,7 +4,6 @@
 CMakeFiles/NagyHazi.dir/datumkezeles.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.c
  C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h
- C:/Users/beren/Desktop/NagyHazi/Programkod/debugmalloc.h
 CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/debugmalloc.h
@@ -23,6 +22,7 @@ CMakeFiles/NagyHazi.dir/main.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/main.c
  C:/Users/beren/Desktop/NagyHazi/Programkod/menu.h
+ C:/Users/beren/Desktop/NagyHazi/Programkod/rendezes.h
 CMakeFiles/NagyHazi.dir/menu.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/debugmalloc.h
@@ -31,8 +31,15 @@ CMakeFiles/NagyHazi.dir/menu.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/menu.c
  C:/Users/beren/Desktop/NagyHazi/Programkod/menu.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/validacio.h
+CMakeFiles/NagyHazi.dir/rendezes.c.obj
+ C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h
+ C:/Users/beren/Desktop/NagyHazi/Programkod/debugmalloc.h
+ C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.h
+ C:/Users/beren/Desktop/NagyHazi/Programkod/rendezes.c
+ C:/Users/beren/Desktop/NagyHazi/Programkod/rendezes.h
 CMakeFiles/NagyHazi.dir/validacio.c.obj
  C:/Users/beren/Desktop/NagyHazi/Programkod/datumkezeles.h
+ C:/Users/beren/Desktop/NagyHazi/Programkod/debugmalloc.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/fajlkezeles.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/jaratkezeles.h
  C:/Users/beren/Desktop/NagyHazi/Programkod/validacio.c

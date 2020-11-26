@@ -101,6 +101,12 @@
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/menu.h">
 			<Option target="NagyHazi"/>
 		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/rendezes.c">
+			<Option target="NagyHazi"/>
+		</Unit>
+		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/rendezes.h">
+			<Option target="NagyHazi"/>
+		</Unit>
 		<Unit filename="C:/Users/beren/Desktop/NagyHazi/Programkod/validacio.c">
 			<Option target="NagyHazi"/>
 		</Unit>

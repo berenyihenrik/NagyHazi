@@ -51,9 +51,10 @@ Jarat* jaratokBeolvas(Jarat* jaratok, int* jaratokMeret) {
     tempJarat.ferohely = 0;
     while(fscanf(fp,"%[^#]#%d/%d/%d#", tempJarat.azonosito, &(tempJarat.datum.ev), &(tempJarat.datum.honap), &(tempJarat.datum.nap)) != EOF) {
         tempJarat.honnan = beolvas(fp,'#');
-        tempJarat.hova = beolvas(fp,'\n');
+        tempJarat.hova = beolvas(fp,'#');
 
         tempJarat.foglaltUlesek = NULL;
+        fscanf(fp,"%d\n",&(tempJarat.ferohely));
 
         jaratok = (Jarat*)realloc(jaratok, (*jaratokMeret) * sizeof(*jaratok));
 
@@ -69,7 +70,8 @@ Jarat* jaratokBeolvas(Jarat* jaratok, int* jaratokMeret) {
 void jaratRogzit(Jarat* jaratok, int jaratokMeret) {
     FILE *fp = fopen("jaratok.txt", "w");
     for(int jarat = 0; jarat < jaratokMeret; jarat++) {
-        fprintf(fp, "%s#%d/%d/%d#%s#%s\n", jaratok[jarat].azonosito, jaratok[jarat].datum.ev, jaratok[jarat].datum.honap, jaratok[jarat].datum.nap, jaratok[jarat].honnan, jaratok[jarat].hova);
+        jaratok[jarat].ferohely = 90;
+        fprintf(fp, "%s#%d/%d/%d#%s#%s#%d\n", jaratok[jarat].azonosito, jaratok[jarat].datum.ev, jaratok[jarat].datum.honap, jaratok[jarat].datum.nap, jaratok[jarat].honnan, jaratok[jarat].hova, jaratok[jarat].ferohely);
     }
     fclose(fp);
 }

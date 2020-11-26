@@ -3,7 +3,6 @@
 
 CMakeFiles/NagyHazi.dir/datumkezeles.c.obj: ../datumkezeles.c
 CMakeFiles/NagyHazi.dir/datumkezeles.c.obj: ../datumkezeles.h
-CMakeFiles/NagyHazi.dir/datumkezeles.c.obj: ../debugmalloc.h
 
 CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj: ../datumkezeles.h
 CMakeFiles/NagyHazi.dir/fajlkezeles.c.obj: ../debugmalloc.h
@@ -22,6 +21,7 @@ CMakeFiles/NagyHazi.dir/main.c.obj: ../fajlkezeles.h
 CMakeFiles/NagyHazi.dir/main.c.obj: ../jaratkezeles.h
 CMakeFiles/NagyHazi.dir/main.c.obj: ../main.c
 CMakeFiles/NagyHazi.dir/main.c.obj: ../menu.h
+CMakeFiles/NagyHazi.dir/main.c.obj: ../rendezes.h
 
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../datumkezeles.h
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../debugmalloc.h
@@ -31,7 +31,14 @@ CMakeFiles/NagyHazi.dir/menu.c.obj: ../menu.c
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../menu.h
 CMakeFiles/NagyHazi.dir/menu.c.obj: ../validacio.h
 
+CMakeFiles/NagyHazi.dir/rendezes.c.obj: ../datumkezeles.h
+CMakeFiles/NagyHazi.dir/rendezes.c.obj: ../debugmalloc.h
+CMakeFiles/NagyHazi.dir/rendezes.c.obj: ../jaratkezeles.h
+CMakeFiles/NagyHazi.dir/rendezes.c.obj: ../rendezes.c
+CMakeFiles/NagyHazi.dir/rendezes.c.obj: ../rendezes.h
+
 CMakeFiles/NagyHazi.dir/validacio.c.obj: ../datumkezeles.h
+CMakeFiles/NagyHazi.dir/validacio.c.obj: ../debugmalloc.h
 CMakeFiles/NagyHazi.dir/validacio.c.obj: ../fajlkezeles.h
 CMakeFiles/NagyHazi.dir/validacio.c.obj: ../jaratkezeles.h
 CMakeFiles/NagyHazi.dir/validacio.c.obj: ../validacio.c

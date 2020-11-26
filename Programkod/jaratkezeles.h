@@ -9,7 +9,7 @@ typedef struct Jarat{
     char *honnan;
     char *hova;
     int ferohely;
-    char *foglaltUlesek;
+    int* foglaltUlesek;
 }Jarat;
 
 typedef struct Foglalas {
@@ -20,7 +20,7 @@ typedef struct Foglalas {
 }Foglalas;
 
 typedef enum Menu{
-    normal,
+    normal = 1,
     vega,
     laktozmentes
 }Menu;
@@ -31,8 +31,10 @@ Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, i
 
 Foglalas* jaratTorol(Foglalas* foglalasok, char* nev, int* foglalasokMeret);
 
-void foglaltsagiTerkep(char* jaratszam); //még nem ellenõrzi az eddig lefoglalt helyeket, csupa üres helyeket fog printelni
+void foglaltsagiTerkep(Jarat* jaratok,int jaratokMeret, char* jaratszam);
 
 void Osszesit(Jarat* jaratok, Foglalas* foglalasok, int jaratokMeret, int foglalasokMeret);
+
+int ulohelySzam(char* ulohely);
 
 #endif

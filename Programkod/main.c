@@ -6,6 +6,7 @@
 #include "datumkezeles.h"
 #include "jaratkezeles.h"
 #include "menu.h"
+#include "rendezes.h"
 
 int main() {
 #ifdef _WIN32
@@ -20,12 +21,14 @@ int main() {
 
     /* foglalasok.txt adatainak beolvasása és tárolása */
     int foglalasokMeret = 0;
-    Foglalas* foglalasok = (Foglalas*)malloc(foglalasokMeret * sizeof(foglalasok));
+    Foglalas* foglalasok = (Foglalas*)malloc(foglalasokMeret * sizeof(Foglalas));
     foglalasok = foglalasokBeolvas(jaratok, foglalasok, &foglalasokMeret, jaratokMeret);
 
     /* Menü */
     menu(jaratok, &jaratokMeret, &foglalasok, &foglalasokMeret);
 
+    /* Foglalások rendezése járatszám szerint */
+    foglalasok = rendezes(jaratok, jaratokMeret, foglalasok, foglalasokMeret);
 
     /* Adatok elmentése */
     jaratRogzit(jaratok, jaratokMeret);

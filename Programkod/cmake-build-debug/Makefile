@@ -277,6 +277,33 @@ menu.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/menu.c.s
 .PHONY : menu.c.s
 
+rendezes.obj: rendezes.c.obj
+
+.PHONY : rendezes.obj
+
+# target to build an object file
+rendezes.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/rendezes.c.obj
+.PHONY : rendezes.c.obj
+
+rendezes.i: rendezes.c.i
+
+.PHONY : rendezes.i
+
+# target to preprocess a source file
+rendezes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/rendezes.c.i
+.PHONY : rendezes.c.i
+
+rendezes.s: rendezes.c.s
+
+.PHONY : rendezes.s
+
+# target to generate assembly for a file
+rendezes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NagyHazi.dir\build.make CMakeFiles/NagyHazi.dir/rendezes.c.s
+.PHONY : rendezes.c.s
+
 validacio.obj: validacio.c.obj
 
 .PHONY : validacio.obj
@@ -328,6 +355,9 @@ help:
 	@echo ... menu.obj
 	@echo ... menu.i
 	@echo ... menu.s
+	@echo ... rendezes.obj
+	@echo ... rendezes.i
+	@echo ... rendezes.s
 	@echo ... validacio.obj
 	@echo ... validacio.i
 	@echo ... validacio.s

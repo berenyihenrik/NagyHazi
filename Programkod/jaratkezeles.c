@@ -18,14 +18,54 @@ void jaratKeres(Jarat *jaratok, int meret, char *honnan, char *hova, Datum datum
     }
 }
 
-Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, int jarat, int* foglalasokMeret) {
-    /*if (jaratok[jarat].foglaltUlesek == NULL) {
-        jaratok[jarat].foglaltUlesek = (char*)malloc(((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
-    } else {
-        jaratok[jarat].foglaltUlesek = realloc(jaratok[jarat].foglaltUlesek,((96 - jaratok[jarat].ferohely) + 1) * sizeof(char));
+int ulohelySzam(char* ulohely) {
+    char sor[4] = "";
+    strcpy(sor,(ulohely) + 1);
+    int sorszam = atoi(strtok(sor, "\0"));
+    int ules;
+    switch (ulohely[0]) {
+        case 'A':
+            ules = 0 + (sorszam-1)*9;
+            break;
+        case 'B':
+            ules = 1 + (sorszam-1)*9;
+            break;
+        case 'C':
+            ules = 2 + (sorszam-1)*9;
+            break;
+        case 'D':
+            ules = 3 + (sorszam-1)*9;
+            break;
+        case 'E':
+            ules = 4 + (sorszam-1)*9;
+            break;
+        case 'F':
+            ules = 5 + (sorszam-1)*9;
+            break;
+        case 'G':
+            ules = 6 + (sorszam-1)*9;
+            break;
+        case 'H':
+            ules = 7 + (sorszam-1)*9;
+            break;
+        case 'I':
+            ules = 8 + (sorszam-1)*9;
+            break;
+        default:
+            ules = 0;
+            break;
     }
-    jaratok[jarat].ferohely--;*/
+    return ules;
+}
 
+Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, int jarat, int* foglalasokMeret) {
+    if (jaratok[jarat].foglaltUlesek == NULL) {
+        jaratok[jarat].foglaltUlesek = (int*) malloc(1 * sizeof(int));
+    } else {
+        jaratok[jarat].foglaltUlesek = (int*) realloc(jaratok[jarat].foglaltUlesek,((90 - jaratok[jarat].ferohely) + 1) * sizeof(int));
+    }
+    (jaratok[jarat].ferohely)--;
+    jaratok[jarat].foglaltUlesek[(90 - jaratok[jarat].ferohely) - 1] = ulohelySzam(foglalas.ulohely);
 
     Foglalas *ujfoglalas;
     (*foglalasokMeret)++;
@@ -38,8 +78,6 @@ Foglalas* jaratFoglal(Jarat* jaratok, Foglalas* foglalasok, Foglalas foglalas, i
 Foglalas* jaratTorol(Foglalas* foglalasok, char* nev, int* foglalasokMeret) {
     for(int foglalas = 0; foglalas < *foglalasokMeret; foglalas++) {
         if(strcmp(foglalasok[foglalas].nev, nev) == 0) {
-            /*if(foglalas != (*foglalasokMeret-1) {
-            }*/
             Foglalas tmpFoglalas;
             tmpFoglalas = foglalasok[foglalas];
             foglalasok[foglalas] = foglalasok[(*foglalasokMeret)-1];
@@ -54,8 +92,23 @@ Foglalas* jaratTorol(Foglalas* foglalasok, char* nev, int* foglalasokMeret) {
     return foglalasok;
 }
 
-void foglaltsagiTerkep(char* jaratszam) {  //még nem ellenõrzi az eddig lefoglalt helyeket, csupa üres helyeket fog printelni
-    printf("ABC DEF GHI\n");
+void foglaltsagiTerkep(Jarat* jaratok,int jaratokMeret, char* jaratszam) {
+    int jarat = 0;
+    char ulesek[90];
+    for(int i = 0; i < 90; i++) {
+        ulesek[i] = '*';
+    }
+
+    while(jarat < jaratokMeret) {
+        if(strcmp(jaratok[jarat].azonosito, jaratszam) == 0) {
+            for (int i = 0; i < (90 - jaratok[jarat].ferohely); i++) {
+                ulesek[jaratok[jarat].foglaltUlesek[i]] = 'x';
+            }
+        }
+        jarat++;
+    }
+
+    printf("A B C\tD E F\tG H I\n");
     int ules = 0;
     while(ules < 90) {
         if(ules % 9 == 0 && ules != 0) {
@@ -63,7 +116,7 @@ void foglaltsagiTerkep(char* jaratszam) {  //még nem ellenõrzi az eddig lefoglal
         } else if(ules % 3 == 0 && ules != 0) {
             printf(" ");
         }
-        printf("*");
+        printf("%c ", ulesek[ules]);
         ules++;
     }
     printf(" %d\n",(ules/9));
@@ -85,6 +138,6 @@ void Osszesit(Jarat* jaratok, Foglalas* foglalasok, int jaratokMeret, int foglal
                 }
             }
         }
-        printf("%s         %d          %d          %d\n", jaratok[jarat].azonosito, norm, veg, lakt);
+        printf("%s\t\t%d\t\t%d\t\t%d\n", jaratok[jarat].azonosito, norm, veg, lakt);
     }
 }

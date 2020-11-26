@@ -1,5 +1,6 @@
 #include "validacio.h"
 #include "fajlkezeles.h"
+#include "debugmalloc.h"
 
 bool datumValidacio(Datum datum) {
     if(datum.ev < 2020) {
@@ -18,4 +19,13 @@ char* inputValidacio(char* input) {
         input = beolvas(stdin, '\n');
     }
     return input;
+}
+
+bool ulohelyValidacio(int ules, int foglalt[], int meret) {
+    for(int i = 0; i < meret; i++) {
+       if(foglalt[i] == ules) {
+           return true;
+       }
+    }
+    return false;
 }

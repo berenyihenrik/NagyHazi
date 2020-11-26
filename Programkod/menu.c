@@ -58,10 +58,15 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas** foglalasok, int* foglala
                     foglalas.nev = inputValidacio(beolvas(stdin, '\n'));
 
                     printf("Kérlek válassz ülõhelyet!\n");
-                    foglaltsagiTerkep(foglalas.azonosito);
+                    foglaltsagiTerkep(jaratok, *jaratokMeret, foglalas.azonosito);
                     printf("Választott ülõhely:");
-                    /* VALIDÁCIÓ SZÜKSÉGES */
                     scanf("%s", foglalas.ulohely);
+
+                    while(ulohelyValidacio(ulohelySzam(foglalas.ulohely), jaratok[jarat].foglaltUlesek, (90 - jaratok[jarat].ferohely))) {
+                        printf("Ez az ülõhely már foglalt,, kérlek írd be újra.\n");
+                        scanf("%s", foglalas.ulohely);
+                    }
+
                     printf("Válassz az alábbi menük közül:\n");
                     printf("1.: Normál\n");
                     printf("2.: Vega\n");
@@ -97,7 +102,7 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas** foglalasok, int* foglala
         /* Összesítés menüpont */
         else if(menupont == 4) {
             printf("Összesítés.\n");
-            printf("Járatszám    Normál    Vegán    Laktózmentes\n");
+            printf("Járatszám\tNormál\t\tVegán\t""Laktózmentes\n");
             Osszesit(jaratok, *foglalasok, *jaratokMeret, *foglalasokMeret);
         }
 

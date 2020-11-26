@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/NagyHazi.dir/jaratkezeles.c.obj"
   "CMakeFiles/NagyHazi.dir/main.c.obj"
   "CMakeFiles/NagyHazi.dir/menu.c.obj"
+  "CMakeFiles/NagyHazi.dir/rendezes.c.obj"
   "CMakeFiles/NagyHazi.dir/validacio.c.obj"
   "NagyHazi.exe"
   "NagyHazi.exe.manifest"

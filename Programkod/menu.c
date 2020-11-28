@@ -41,6 +41,8 @@ void menu(Jarat* jaratok, int* jaratokMeret, Foglalas** foglalasok, int* foglala
 
             /* Járat keresése */
             jaratKeres(jaratok, *jaratokMeret, honnan, hova, datum_kezdo, datum_vegso);
+            free(honnan);
+            free(hova);
         }
 
         /* Repülõjegy foglalása menüpont */

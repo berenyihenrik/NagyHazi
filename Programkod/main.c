@@ -8,7 +8,7 @@
 #include "menu.h"
 #include "rendezes.h"
 
-int main() {
+int main(void) {
 #ifdef _WIN32
     SetConsoleCP(1250);
     SetConsoleOutputCP(1250);
